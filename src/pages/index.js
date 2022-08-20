@@ -1,5 +1,12 @@
 import React from "react"
+import Nav from "../components/Nav"
+
+import "./../assets/scss/global.scss"
 
 export default function Home() {
-  return <div>Hello world!</div>
+  return (
+    <>
+      <Nav />
+    </>
+  )
 }

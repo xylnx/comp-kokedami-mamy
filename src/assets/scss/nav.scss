@@ -1,0 +1,296 @@
+// Colors
+$color-text-primary: rgb(0, 114, 41);
+$color-text-secondary: #fff;
+$color-bg: #fff;
+$color-black: #000;
+$color-white: #fff;
+
+// Fonts
+$font-size-default: 2.6rem;
+$font-size-medium: 2rem;
+$letter-spacing-default: 2px;
+
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Media queries
+@mixin media($breakpoint) {
+  @if $breakpoint == x-small {
+    @media (max-width: 36rem) { @content };
+  }
+
+  @if $breakpoint == small {
+    @media (max-width: 48rem) { @content };
+  }
+
+  @if $breakpoint == small-medium {
+    @media (max-width: 1100px) { @content };
+  }
+
+  @if $breakpoint == medium {
+    @media (max-width: 75rem) { @content };
+  }
+
+  @if $breakpoint == large {
+    @media (min-width: 112.5rem) { @content };
+  }
+}
+
+.wrapper {
+  background: #fff;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top;
+  background-size: 100vw;
+  background-repeat: repeat;
+}
+
+.nav {
+  padding-top: 2vh;
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__brand {
+    display: inline-block;
+    position: relative;
+    height: 20vh;
+    padding-left: 6rem;
+  }
+
+  &__logo {
+    position: absolute;
+    top: -.87rem;
+    height: 90%;
+    transition: all .4s ease-in-out;
+  }
+
+  &__list {
+    float: right;
+    margin-top: 8rem;
+    padding-right: 6rem;
+  }
+
+  &__list &__item {
+    list-style: none;
+    display: inline-block;
+    font-size: 2.8rem;
+    font-weight: regular;
+    letter-spacing: 2px;
+
+    &:not(:last-child) {
+      padding-right: 4rem;
+    }
+  }
+
+  &__link,
+  &__link:link,
+  &__link:active {
+    font-size: 2.8rem;
+    font-weight: regular;
+    letter-spacing: 2px;
+    display: inline-block;
+    text-decoration: none;
+    color: $color-text-primary;
+    font-weight: 400;
+    transition: all .1s ease-in-out;
+    &:not(:last-child) {
+      padding-right: 4rem;
+    }
+
+    &:hover {
+      transform: translateY(-.3rem);
+      font-weight: 600;
+    }
+
+    &::after {
+      font-weight: bold;
+      visibility: hidden;
+
+    }
+
+    // Content in hidden after els
+    &:nth-child(1)::after {
+      content: 'o nás';
+    }
+
+
+    &:nth-child(2)::after {
+      content: 'workshopy';
+    }
+
+    &:nth-child(3)::after {
+      content: 'e-shop';
+    }
+
+    &:nth-child(4)::after {
+      content: 'kontakt';
+    }
+  }
+
+  a::after {
+      display: block;
+      content: attr(title);
+      font-weight: bold;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+  @include media(medium) {
+    padding-bottom: 1rem;
+
+    &__list &__link {
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+    }
+  }
+
+  @include media(small-medium) {
+
+    &__brand {
+      padding-left: 2rem;
+    }
+
+    &__list {
+      padding-right: 1rem;
+      padding-top: .6rem;
+    }
+
+    &__list &__item {
+      &:not(:last-child) {
+        padding-right: 3rem;
+      }
+    }
+
+    &__list &__link {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  @include media(small) {
+
+    &__brand {
+      height: 16rem;
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &__list &__link {
+      font-size: 2rem;
+    }
+
+    &__button {
+      background: $color-white;
+      height: 10rem;
+      width: 10rem;
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      text-align: center;
+      padding: 1rem 3.8rem;
+      z-index: 20;
+      border: 2px solid $color-text-primary;
+    }
+
+    &__background {
+      height: 10rem;
+      width: 10rem;
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 10000;
+      padding: 1.2rem 4.2rem;
+      transition: all .4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    &__icon {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 90;
+
+      &,
+      &::before,
+      &::after {
+        height: 3px;
+        width: 3.5rem;
+        background-color: $color-text-primary;
+        display: inline-block;
+        transition: all .4s ease-in-out;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+      }
+
+      &::before { top: -1rem; }
+      &::after { top: .9rem; }
+    }
+
+    // Expand menu
+    // Use checkbox hack with additional js support
+    &__checkbox:checked ~ &__button > &__background {
+      background: $color-text-primary;
+      opacity: 1;
+      transform: scale(80);
+      z-index: -100;
+    }
+
+    // Animate icon on click
+    &__checkbox:checked + &__button &__icon {
+      background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon:before {
+      background-color: $color-bg;
+      top: 0;
+      transform: rotate(135deg); // 180 - 45
+    }
+
+    &__checkbox:checked + &__button &__icon:after {
+      background-color: $color-bg;
+      top: 0;
+      transform: rotate(-135deg);
+    }
+
+    &__checkbox:checked ~ &__list {
+      top: 21rem;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      position: fixed;
+      width: 50%;
+      z-index: 80;
+      text-align: center;
+    }
+
+    &__checkbox:checked ~ &__list &__item {
+      color: $color-bg;
+      display: block;
+      padding-right: 0;
+    }
+
+    &__checkbox:checked ~ &__list &__link {
+      color: $color-bg;
+      padding: 2rem 1rem;
+    }
+  }
+}
+
