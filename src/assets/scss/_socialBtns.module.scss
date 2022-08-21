@@ -1,0 +1,93 @@
+@use "./vars" as *;
+@use "./mq" as *;
+
+.social-container--ws {
+  position: absolute;
+  right: 16rem;
+  bottom: 3rem;
+
+  @include media(small-medium) {
+    right: 14rem;
+  }
+
+  @include media(small) {
+    position: relative;
+    right: auto;
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 2.5rem;
+    padding-top: 10rem;
+  }
+}
+
+.social-container {
+  position: absolute;
+  right: 18rem;
+  bottom: 3rem;
+
+   @include media(small) {
+    right: 3rem;
+   }
+}
+
+// Everything here won't be hashed, except .social
+// social is hashed to scope these styles (to ._socialBtns-module--social--...)
+// this allows you to use (mostly) regular class names in the template
+:global {
+
+:local(.social) .social{
+
+  &__btn {
+    width: 5rem;
+    height: 5rem;
+    border: .4rem solid $color-text-primary;
+    position: relative;
+    border-radius: 15rem;
+    z-index: 5001;
+    transition: all .4s ease-in-out;
+  }
+
+  &__link-box {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__btn {
+    width: 5rem;
+    height: 5rem;
+    border: .4rem solid $color-text-primary;
+    position: relative;
+    border-radius: 15rem;
+    z-index: 5001;
+    transition: all .4s ease-in-out;
+  }
+
+  &__btn:hover {
+    background-color: rgb(0, 114, 41);
+    // box-shadow: 0 1rem 2rem rgba(0,0,0, 0.4);
+    transform: translateY(-3px);
+  }
+
+  &__btn:hover i {
+    // background: url('../img/background.jpg');
+    background-position: center;
+    background-clip: text;
+    --webkit-background-clip: text;
+    color: transparent;
+    color: $color-white;
+  }
+
+  &__link i {
+    font-size: 2.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-text-primary;
+  }
+} // .social end
+
+} // global end

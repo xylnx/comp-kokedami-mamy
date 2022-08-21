@@ -1,12 +1,17 @@
 import React from "react"
-import Nav from "../components/Nav"
 
+// Components
+import Nav from "../components/Nav"
+import SocialBtns from "../components/SocialBtns"
+
+// Styles
 import "./../assets/scss/global.scss"
 
 export default function Home() {
   return (
     <>
       <Nav />
+      <SocialBtns />
     </>
   )
 }
