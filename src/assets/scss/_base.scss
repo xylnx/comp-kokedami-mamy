@@ -13,6 +13,7 @@
 html {
   font-size: 62.5%;
 
+  /*
   @include mq.media(medium) {
     font-size: 60%;
   }
@@ -20,6 +21,7 @@ html {
   @include mq.media(small) {
     font-size: 40%;
   }
+  */
 }
 
 body {
@@ -28,6 +30,16 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 42;
+}
+
+#gatsby-focus-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 p {
