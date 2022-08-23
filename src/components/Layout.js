@@ -2,7 +2,8 @@ import React from "react"
 
 // Components
 import Nav from "../components/Nav"
-import SocialLinks from "../components/SocialLinks"
+import Hero from "../components/Hero"
+import Footer from "../components/Footer"
 
 // Styles
 import "./../assets/scss/global.scss"
@@ -13,10 +14,8 @@ const Layout = ({ children }) => {
       <header className="header">
         <Nav />
       </header>
-      <main className="main">{children}</main>
-      <footer className="footer">
-        <SocialLinks />
-      </footer>
+      <main className="main container flow">{children}</main>
+      <Footer isSocial={isSocial} />
     </>
   )
 }
