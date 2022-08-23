@@ -5,6 +5,13 @@ import logo from "../assets/img/logo.png"
 import "../assets/scss/nav.scss"
 
 const Nav = () => {
+  const handleClick = () => {
+    const check = document.querySelector("#navi-toggle")
+    if (check.checked) {
+      check.checked = false
+    }
+  }
+
   return (
     <nav className="nav wrapper">
       {/* toggle mobile nav */}
@@ -19,7 +26,7 @@ const Nav = () => {
       </Link>
 
       <div className="nav__list">
-        <Link className="nav__link" to="about">
+        <Link className="nav__link" to="/#about" onClick={handleClick}>
           o nás
         </Link>
         <Link className="nav__link" to="workshops">
@@ -33,7 +40,7 @@ const Nav = () => {
         >
           e-shop
         </a>
-        <Link className="nav__link" to="contact">
+        <Link className="nav__link" to="/contact" onClick={handleClick}>
           kontakt
         </Link>
       </div>
