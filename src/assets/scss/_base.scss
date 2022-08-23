@@ -30,6 +30,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 42;
+  background-color: vars.$color-bg;
 }
 
 #gatsby-focus-wrapper {
@@ -38,12 +39,19 @@ body {
   min-height: 100vh;
 }
 
+header {
+  margin-bottom: 2.4rem;
+}
+
 main {
   flex: 1;
+  text-align: center;
 }
 
 p {
-  padding-bottom: 4vh;
+  font-size: 2.4rem;
+  letter-spacing: 2px;
+  font-weight: 200;
 }
 
 // Form Inputs
@@ -67,4 +75,8 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: vars.$color-text-primary;
   -webkit-box-shadow: 0 0 0px 1000px vars.$color-bg inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.flow > * + * {
+  margin-top: 2.4rem;
 }

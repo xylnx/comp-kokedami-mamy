@@ -22,11 +22,16 @@
 }
 
 .social-container {
+  display: inline-block;
+  position: absolute;
+  bottom: 2.4rem;
+  right: 12rem;
+  background: transparent;
 }
+
 .social {
   display: flex;
   gap: .8rem;
-
 }
 
 // Everything here won't be hashed, except .social

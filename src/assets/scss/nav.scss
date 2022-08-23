@@ -1,6 +1,7 @@
 @use "./vars" as vars;
 @use "./mq";
 
+
 @mixin clearfix {
   &::after {
     content: '';
@@ -11,7 +12,6 @@
 
 
 .wrapper {
-  background: #fff;
   background-position-x: 0%;
   background-position-y: 0%;
   background-repeat: repeat;
@@ -20,6 +20,7 @@
   background-size: 100vw;
   background-repeat: repeat;
 }
+
 
 .nav {
   padding-top: 2vh;
@@ -52,7 +53,6 @@
     list-style: none;
     display: inline-block;
     font-size: 2.8rem;
-    font-weight: regular;
     letter-spacing: 2px;
 
     &:not(:last-child) {
@@ -62,14 +62,14 @@
 
   &__link,
   &__link:link,
-  &__link:active {
+  &__link:active,
+  [href^="mailto:"] {
     font-size: 2.8rem;
-    font-weight: regular;
     letter-spacing: 2px;
     display: inline-block;
     text-decoration: none;
     color: vars.$color-text-primary;
-    font-weight: 400;
+    font-weight: 200;
     transition: all .1s ease-in-out;
     &:not(:last-child) {
       padding-right: 4rem;
@@ -92,15 +92,17 @@
     }
 
 
+    /*
     &:nth-child(2)::after {
       content: 'workshopy';
     }
+    */
 
-    &:nth-child(3)::after {
+    &:nth-child(2)::after {
       content: 'e-shop';
     }
 
-    &:nth-child(4)::after {
+    &:nth-child(3)::after {
       content: 'kontakt';
     }
   }
@@ -141,7 +143,7 @@
     }
 
     &__list &__link {
-      font-size: 2.2rem;
+      font-size: 3.2rem;
       letter-spacing: 1px;
     }
   }
@@ -157,13 +159,13 @@
     }
 
     &__list &__link {
-      font-size: 2rem;
+      font-size: 3.2rem;
     }
 
     &__button {
       background: vars.$color-white;
-      height: 10rem;
-      width: 10rem;
+      height: 8rem;
+      width: 8rem;
       position: fixed;
       top: 2rem;
       right: 2rem;
@@ -174,8 +176,8 @@
     }
 
     &__background {
-      height: 10rem;
-      width: 10rem;
+      height: 8rem;
+      width: 8rem;
       position: fixed;
       top: 2rem;
       right: 2rem;
@@ -195,7 +197,7 @@
       &::before,
       &::after {
         height: 3px;
-        width: 3.5rem;
+        width: 3rem;
         background-color: vars.$color-text-primary;
         display: inline-block;
         transition: all .4s ease-in-out;
@@ -213,7 +215,7 @@
     }
 
     // Expand menu
-    // Use checkbox hack with additional js support
+    // Uses checkbox hack with additional js support
     &__checkbox:checked ~ &__button > &__background {
       background: vars.$color-text-primary;
       opacity: 1;
@@ -247,6 +249,9 @@
       width: 50%;
       z-index: 80;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     &__checkbox:checked ~ &__list &__item {
