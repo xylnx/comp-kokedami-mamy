@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram, faFacebookF } from "@fortawesome/free-brands-svg-icons"
 
 // Styles
-import * as styles from "../assets/scss/_socialBtns.module.scss"
+import * as styles from "../assets/scss/_socialLinks.module.scss"
 
-const SocialLinks = () => {
+const SocialLinks = ({ customStyles }) => {
   return (
-    <div className={styles.socialContainer}>
+    <div className={styles.socialContainer} style={customStyles}>
       <div className={styles.social}>
         {/* facebook btn */}
         <a
@@ -32,7 +32,6 @@ const SocialLinks = () => {
           rel="noreferrer"
           className="social__link"
         >
-          <FontAwesomeIcon icon="fa-brands fa-instagram" />
           <FontAwesomeIcon
             className="social__icon"
             aria-hidden="true"
