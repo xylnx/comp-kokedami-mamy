@@ -29,11 +29,9 @@ const Nav = () => {
         <Link className="nav__link" to="/#about" onClick={handleClick}>
           o nás
         </Link>
-        {/*
         <Link className="nav__link" to="/workshops">
           workshopy
         </Link>
-        */}
         <a
           className="nav__link"
           href="https://eshop.kokedamimamy.cz/"
