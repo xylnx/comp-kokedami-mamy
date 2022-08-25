@@ -115,9 +115,11 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   font-size: 62.5%;
   color: $color-text-primary;
   background-color: $color-white
+
 }
 
 a {
@@ -140,7 +142,7 @@ h1 {
 }
 
 .u-bold {
-  font-weight: 400;
+  font-weight: 500;
 }
 
   [href^="mailto:"] {
