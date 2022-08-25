@@ -1,7 +1,8 @@
 ---
 slug: "/"
 title: "o nás"
-featured-image: ../assets/img/featured-home.jpg
+featuredImg: ../assets/img/featured-home.jpg
+featuredImgMobile: ../assets/img/featured-home-mobile.jpg
 ---
 
 # o nás
