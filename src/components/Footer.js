@@ -1,79 +1,109 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 
 // Components
 import SocialLinks from "../components/SocialLinks"
+
+// Styles
+import "../assets/scss/footer.scss"
+const styles = {
+  kokedama: {
+    display: "inline-block",
+    width: "40%",
+    maxWidth: "16rem",
+    verticalAlign: "bottom",
+  },
+  paroznatka: {
+    display: "inline-block",
+    width: "30%",
+    maxWidth: "18rem",
+    verticalAlign: "bottom",
+    display: "none",
+  },
+  duznatka: {
+    position: "absolute",
+    bottom: "0",
+    right: "0",
+    display: "inline-block",
+    width: "16%",
+    maxWidth: "6rem",
+    display: "none",
+  },
+}
 
 const Footer = ({ isSocial = true }) => {
   const data = useStaticQuery(graphql`
     query query {
       kokedama: file(relativePath: { regex: "/kokedama-1.png/" }) {
         childImageSharp {
-          gatsbyImageData(
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF, PNG]
-          )
+          fluid(maxWidth: 1000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
       duznatka: file(relativePath: { regex: "/duznatka.png/" }) {
         childImageSharp {
-          gatsbyImageData(
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF, PNG]
-          )
+          fluid(maxWidth: 1000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
       paroznatka: file(relativePath: { regex: "/paroznatka.png/" }) {
         childImageSharp {
-          gatsbyImageData(
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF, PNG]
-          )
+          fluid(maxWidth: 1000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
   `)
-  const kokedama = getImage(data.kokedama)
-  const duznatka = getImage(data.duznatka)
-  const paroznatka = getImage(data.paroznatka)
+  const kokedama = data.kokedama.childImageSharp.fluid
+  const duznatka = data.kokedama.childImageSharp.fluid
+  const paroznatka = data.paroznatka.childImageSharp.fluid
 
   return (
     <footer
       className="footer"
       style={{ position: "relative", marginTop: "2.4rem" }}
     >
-      <GatsbyImage
-        image={kokedama}
+      <Img
+        fluid={kokedama}
         alt=""
-        style={{
-          display: "inline-block",
-          maxWidth: "16rem",
-          verticalAlign: "bottom",
-        }}
+        className="kokedama"
+        style={styles.kokedama}
       />
-      <GatsbyImage
-        image={paroznatka}
+      <Img
+        fluid={paroznatka}
         alt=""
-        style={{
-          display: "inline-block",
-          maxWidth: "16rem",
-          verticalAlign: "bottom",
-        }}
+        className="paroznatka"
+        style={styles.paroznatka}
       />
       {isSocial && <SocialLinks />}
+
+      <Img
+        fluid={data.duznatka.childImageSharp.fluid}
+        alt=""
+        className="duznatka"
+        style={styles.duznatka}
+      />
+      {/*
+
       <GatsbyImage
         image={duznatka}
         alt=""
-        style={{
-          position: "absolute",
-          bottom: "0",
-          right: "0",
-          display: "inline-block",
-          maxWidth: "10rem",
-          verticalAlign: "bottom",
-        }}
+        style={styles.duznatka}
+        imgStyle={{ objectFit: "none" }}
       />
+      */}
+
+      <style>
+        {`
+          .paroznatka {
+          display: none;
+        }
+        `}
+      </style>
     </footer>
   )
 }
