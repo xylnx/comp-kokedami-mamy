@@ -7,11 +7,21 @@ import Layout from "../components/Layout"
 import Button from "../components/Button"
 
 export default function Home({ data }) {
-  const image = getImage(data.markdownRemark.frontmatter.featured_image)
+  // Images
+  const image =
+    data.markdownRemark.frontmatter.featuredImg.childImageSharp.fluid
+  const imageMobile =
+    data.markdownRemark.frontmatter.featuredImgMobile.childImageSharp.fluid
+  const sources = [
+    { ...imageMobile, media: `(max-width: 500px)` },
+    { ...image, media: `(min-width: 500px)` },
+  ]
+
+  // Content
   const content = data.markdownRemark.html
 
   return (
-    <Layout image={image}>
+    <Layout image={sources}>
       <section
         id="about"
         className="content flow"
@@ -28,12 +38,18 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
-        featured_image {
+        featuredImg {
           childImageSharp {
-            gatsbyImageData(
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, JPG]
-            )
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        featuredImgMobile {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }

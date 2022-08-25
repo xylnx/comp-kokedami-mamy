@@ -2,18 +2,28 @@
 import React from "react"
 // Gatsby
 import { graphql } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
+
 // Components
 import Layout from "../components/Layout"
 import SocialLinks from "../components/SocialLinks"
 
 export default function Home({ data }) {
-  const image = getImage(data.markdownRemark.frontmatter.featured_image)
+  // Images
+  const image =
+    data.markdownRemark.frontmatter.featuredImg.childImageSharp.fluid
+  const imageMobile =
+    data.markdownRemark.frontmatter.featuredImgMobile.childImageSharp.fluid
+  const sources = [
+    { ...imageMobile, media: `(max-width: 500px)` },
+    { ...image, media: `(min-width: 500px)` },
+  ]
+
   const content = data.markdownRemark.html
 
   return (
-    <Layout image={image} isSocial={false}>
-      <div
+    <Layout image={sources} isSocial={false}>
+      <section
+        id="contact"
         className="content flow"
         dangerouslySetInnerHTML={{ __html: content }}
       />
@@ -28,12 +38,18 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
-        featured_image {
+        featuredImg {
           childImageSharp {
-            gatsbyImageData(
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF, JPG]
-            )
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        featuredImgMobile {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
