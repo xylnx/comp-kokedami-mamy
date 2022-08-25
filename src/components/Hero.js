@@ -1,11 +1,12 @@
 import React from "react"
-
-import { GatsbyImage } from "gatsby-plugin-image"
+// Gatsby
+import Img from "gatsby-image"
 
 const Hero = ({ image }) => {
+  console.log("HERO:", image)
   return (
     <>
-      <GatsbyImage style={{ maxHeight: "70vh" }} image={image} alt="" />
+      <Img style={{ height: "70vh" }} fluid={image} alt="" />
     </>
   )
 }
