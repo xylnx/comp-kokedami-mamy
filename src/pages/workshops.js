@@ -22,7 +22,7 @@ export default function Home({ data }) {
   const contentPart2 = data.wsPart2.html
 
   return (
-    <Layout image={sources}>
+    <Layout image={sources} isLegal={true}>
       <section id="workshops" className="content flow">
         <div className="flow" dangerouslySetInnerHTML={{ __html: content }} />
         <Button />

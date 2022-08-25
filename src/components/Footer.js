@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 // Components
@@ -27,12 +27,18 @@ const styles = {
     right: "0",
     display: "inline-block",
     width: "16%",
-    maxWidth: "6rem",
+    maxWidth: "8rem",
     display: "none",
+  },
+  linkLegal: {
+    position: "absolute",
+    bottom: "3.2rem",
+    right: "14rem",
+    fontWeight: "400",
   },
 }
 
-const Footer = ({ isSocial = true }) => {
+const Footer = ({ isSocial = true, isLegal = false }) => {
   const data = useStaticQuery(graphql`
     query query {
       kokedama: file(relativePath: { regex: "/kokedama-1.png/" }) {
@@ -79,6 +85,20 @@ const Footer = ({ isSocial = true }) => {
         className="paroznatka"
         style={styles.paroznatka}
       />
+
+      {isLegal && (
+        <a
+          className="link--legal"
+          href="/Obchodni_podminky_2019.pdf"
+          target="_blank"
+          rel="noreferrer"
+          title="Obchodni podminky"
+          style={styles.linkLegal}
+        >
+          obchodní podmínky
+        </a>
+      )}
+
       {isSocial && <SocialLinks />}
 
       <Img
@@ -87,23 +107,6 @@ const Footer = ({ isSocial = true }) => {
         className="duznatka"
         style={styles.duznatka}
       />
-      {/*
-
-      <GatsbyImage
-        image={duznatka}
-        alt=""
-        style={styles.duznatka}
-        imgStyle={{ objectFit: "none" }}
-      />
-      */}
-
-      <style>
-        {`
-          .paroznatka {
-          display: none;
-        }
-        `}
-      </style>
     </footer>
   )
 }
