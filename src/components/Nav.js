@@ -29,7 +29,7 @@ const Nav = () => {
         <Link className="nav__link" to="/#about" onClick={handleClick}>
           o nás
         </Link>
-        <Link className="nav__link" to="/workshops">
+        <Link className="nav__link" to="/workshops" onClick={handleClick}>
           workshopy
         </Link>
         <a
@@ -37,6 +37,7 @@ const Nav = () => {
           href="https://eshop.kokedamimamy.cz/"
           target="_blank"
           rel="noreferrer"
+          onClick={handleClick}
         >
           e-shop
         </a>
