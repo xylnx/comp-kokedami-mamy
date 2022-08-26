@@ -1,12 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // Components
 import Layout from "../components/Layout"
 import Button from "../components/Button"
 
 export default function Home({ data }) {
+  const lastBuild = new Date(data.site.buildTime)
+  console.log(`%c${lastBuild}`, "background: #444; color: #fff")
+
   // Images
   const image =
     data.markdownRemark.frontmatter.featuredImg.childImageSharp.fluid
@@ -54,6 +56,9 @@ export const pageQuery = graphql`
         }
       }
       html
+    }
+    site {
+      buildTime
     }
   }
 `

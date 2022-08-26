@@ -8,9 +8,9 @@ const Button = () => {
       href="https://eshop.kokedamimamy.cz/"
       target="_blank"
       rel="noreferrer"
-      class="btn"
+      className="btn"
     >
-      <span class="btn__text">e-shop</span>
+      <span className="btn__text">e-shop</span>
     </a>
   )
 }

@@ -3,7 +3,6 @@ import React from "react"
 import Img from "gatsby-image"
 
 const Hero = ({ image }) => {
-  console.log("HERO:", image)
   return (
     <>
       <Img style={{ height: "70vh" }} fluid={image} alt="" />

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 // Components
@@ -15,7 +15,6 @@ const styles = {
     verticalAlign: "bottom",
   },
   paroznatka: {
-    display: "inline-block",
     width: "30%",
     maxWidth: "18rem",
     verticalAlign: "bottom",
@@ -25,7 +24,6 @@ const styles = {
     position: "absolute",
     bottom: "0",
     right: "0",
-    display: "inline-block",
     width: "16%",
     maxWidth: "8rem",
     display: "none",
@@ -102,7 +100,7 @@ const Footer = ({ isSocial = true, isLegal = false }) => {
       {isSocial && <SocialLinks />}
 
       <Img
-        fluid={data.duznatka.childImageSharp.fluid}
+        fluid={duznatka}
         alt=""
         className="duznatka"
         style={styles.duznatka}
