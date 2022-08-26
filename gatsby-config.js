@@ -25,7 +25,7 @@ module.exports = {
         name: `Kokedami Mamy`,
         short_name: `Kokedami Mamy`,
         start_url: `/`,
-        background_color: `#f1f2f4`,
+        background_color: `#fff`,
         theme_color: `#007229`,
         display: `standalone`,
         icon: `src/assets/img/illustration-duznatka.png`,
