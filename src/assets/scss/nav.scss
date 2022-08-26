@@ -30,7 +30,6 @@
     clear: both;
   }
 
-  padding-top: 2vh;
 
   &__checkbox {
     display: none;
@@ -51,8 +50,8 @@
 
   &__list {
     float: right;
-    margin-top: 10rem;
-    padding-right: 6rem;
+    margin-top: 4.8em;
+    padding-right: 3em;
   }
 
   &__list &__item {
@@ -75,19 +74,24 @@
     text-decoration: none;
     color: vars.$color-text-primary;
     font-weight: 400;
+    /*
     transform: translateY(0);
-    transition: transform .4s ease-in-out;
+    transition: transform .2s ease-in-out;
+    */
 
     &:not(:last-child) {
       padding-right: 4rem;
     }
 
+    /*
     &:hover {
-      transform: translateY(-.3rem);
       font-weight: 500;
+
+      transform: translateY(-.3rem);
       transition: transform .2s ease-in-out;
       transition-delay: .2s;
     }
+    */
 
     &::after {
       font-weight: 500;
@@ -140,7 +144,7 @@
     }
 
     &__list {
-      padding-right: 1rem;
+      padding-right: 2em;
       padding-top: .6rem;
     }
 

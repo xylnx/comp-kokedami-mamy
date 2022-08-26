@@ -10,44 +10,6 @@
   background-position-y: 6px;
 }
 
-html {
-  font-size: 62.5%;
-
-  /*
-  @include mq.media(medium) {
-    font-size: 60%;
-  }
-
-  @include mq.media(small) {
-    font-size: 40%;
-  }
-  */
-}
-
-body {
-  // background-image: url('../img/background.jpg');
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 42;
-  background-color: vars.$color-bg;
-}
-
-#gatsby-focus-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-header {
-  margin-bottom: 9.6rem;
-}
-
-main {
-  flex: 1;
-  text-align: center;
-}
-
 // Form Inputs
 input:focus,
 select:focus,
