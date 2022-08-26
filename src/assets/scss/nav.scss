@@ -50,7 +50,7 @@
 
   &__list {
     float: right;
-    margin-top: 4.8em;
+    margin-top: 3.2em;
     margin-bottom: 1em;
     padding-right: 3em;
   }
@@ -261,7 +261,7 @@
     }
 
     &__checkbox:checked ~ &__list {
-      top: 21rem;
+      top: 16rem;
       left: 50%;
       transform: translate(-50%, -50%);
       display: block;
