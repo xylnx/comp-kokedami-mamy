@@ -1,0 +1,21 @@
+
+.image-cards {
+  display: flex;
+  gap: 3.2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 5.6rem 0;
+}
+
+@media (max-width: 700px) {
+  .image-cards {
+    flex-direction: column;
+  }
+
+  .image-cards > div {
+    min-width: 80% !important;
+  }
+
+
+
+}
