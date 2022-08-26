@@ -51,6 +51,7 @@
   &__list {
     float: right;
     margin-top: 4.8em;
+    margin-bottom: 1em;
     padding-right: 3em;
   }
 
@@ -158,6 +159,13 @@
       font-size: 2.4rem;
       letter-spacing: 1px;
     }
+  }
+
+  @media (max-width: 700px) {
+    .nav__list {
+      padding-right: 0;
+    }
+
   }
 
   @include mq.media(small) {
