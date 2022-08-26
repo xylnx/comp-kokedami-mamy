@@ -6,22 +6,11 @@ const ImageCard = ({ image }) => {
   const styles = {
     imgCard: {
       position: "relative",
-      maxWidth: "25rem",
-      minWidth: "30%",
-      aspectRatio: "1 / 1",
-    },
-    imgBox: {
       width: "100%",
-      paddingBottom: "100%",
-      position: "relative",
+      maxWidth: "40rem",
+      height: "auto",
     },
-    img: {
-      position: "absolute",
-      top: "0",
-      left: "0",
-      width: "100%",
-      height: "100%",
-    },
+    img: {},
     imgBg: {
       position: "absolute",
       width: "100%",
@@ -49,9 +38,6 @@ const ImageCard = ({ image }) => {
   const zazitkovy = data.ws1.childImageSharp.fluid
   return (
     <div className="img-card" style={styles.imgCard}>
-      {/*
-        <img src="http://localhost:8000/wp-content/themes/kokedamimamy/dist/assets/img/zazitkovy_workshop_g.gif" alt="image taken at a workshop" className="img">
-        */}
       <Img fluid={image} alt="" className="img-card__img" style={styles.img} />
       <div
         style={styles.imgBg}
