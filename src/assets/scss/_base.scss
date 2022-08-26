@@ -34,5 +34,5 @@ select:-webkit-autofill:focus {
 }
 
 .flow > * + * {
-  margin-top: 2.4rem;
+  margin-top: var(--flow, 2.4rem);
 }
