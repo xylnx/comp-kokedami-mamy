@@ -87,7 +87,7 @@ const Footer = ({ isSocial = true, isLegal = false }) => {
       {isLegal && (
         <a
           className="link--legal"
-          href="/Obchodni_podminky_2019.pdf"
+          href="/Obchodni_podminky_2022.pdf"
           target="_blank"
           rel="noreferrer"
           title="Obchodni podminky"
