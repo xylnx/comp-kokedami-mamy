@@ -7,6 +7,9 @@ import SocialLinks from "../components/SocialLinks"
 
 // Styles
 import "../assets/scss/footer.scss"
+
+const legalLinkTitle = "obchodní podmínky"
+
 const styles = {
   kokedama: {
     display: "inline-block",
@@ -85,16 +88,29 @@ const Footer = ({ isSocial = true, isLegal = false }) => {
       />
 
       {isLegal && (
-        <a
-          className="link--legal"
-          href="/Obchodni_podminky_2022.pdf"
-          target="_blank"
-          rel="noreferrer"
-          title="Obchodni podminky"
-          style={styles.linkLegal}
-        >
-          obchodní podmínky
-        </a>
+        <>
+          <a
+            className="link--legal"
+            href="/Obchodni_podminky_2022.pdf"
+            target="_blank"
+            rel="noreferrer"
+            title={legalLinkTitle}
+            style={styles.linkLegal}
+          >
+            {legalLinkTitle}
+          </a>
+
+          {/* prevent layout shifts on hover */}
+          <style>
+            {`.link--legal:after {
+              content: '${legalLinkTitle}';
+              visibility: hidden;
+              height: 0;
+              display: block;
+              font-weight: bold;
+          }`}
+          </style>
+        </>
       )}
 
       {isSocial && <SocialLinks />}
