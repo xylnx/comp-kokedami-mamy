@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 // Components
 import Layout from "../components/Layout"
 import SocialLinks from "../components/SocialLinks"
+import { Seo } from "../components/Seo"
 
 export default function Home({ data }) {
   // Images
@@ -32,6 +33,10 @@ export default function Home({ data }) {
   )
 }
 
+// Add head infos
+export const Head = () => <Seo />
+
+// Query content
 export const pageQuery = graphql`
   query contactPageQuery {
     markdownRemark(fileAbsolutePath: { regex: "/contact.md/" }) {

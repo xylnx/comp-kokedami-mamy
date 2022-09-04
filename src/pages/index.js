@@ -4,8 +4,10 @@ import { graphql } from "gatsby"
 // Components
 import Layout from "../components/Layout"
 import Button from "../components/Button"
+import { Seo } from "../components/Seo"
 
 export default function Home({ data }) {
+  // Log build time
   const lastBuild = new Date(data.site.buildTime)
   console.log(`%c${lastBuild}`, "background: #444; color: #fff")
 
@@ -34,6 +36,9 @@ export default function Home({ data }) {
   )
 }
 
+export const Head = () => <Seo />
+
+// Query data to populate the home page
 export const pageQuery = graphql`
   query homePageQuery {
     markdownRemark(fileAbsolutePath: { regex: "/home.md/" }) {

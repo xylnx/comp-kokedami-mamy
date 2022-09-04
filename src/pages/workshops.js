@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Button from "../components/Button"
 import ImageCard from "../components/ImageCard"
+import { Seo } from "../components/Seo"
 
 import * as styles from "../assets/scss/_workshops.module.scss"
 
@@ -46,6 +47,10 @@ export default function Home({ data }) {
   )
 }
 
+// Add head infos
+export const Head = () => <Seo />
+
+// Query content
 export const pageQuery = graphql`
   query workshopPageQuery {
     wsPart1: markdownRemark(
