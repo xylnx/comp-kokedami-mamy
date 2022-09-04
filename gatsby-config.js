@@ -1,5 +1,12 @@
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Kokedami Mamy",
+    description: "Kokedami a workshopy pro vás.",
+    image: "/illustration-duznatka.png",
+    siteUrl: `https://www.kokedamimamy.cz`,
+    copyright: "Kokedami Mamy 2022",
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -38,10 +45,4 @@ module.exports = {
       },
     },
   ],
-
-  siteMetadata: {
-    title: "Kokedami Mamy",
-    description: "the best kokedamas in town",
-    copyright: "Kokedami Mamy 2022",
-  },
 }
