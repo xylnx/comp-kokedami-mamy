@@ -26,12 +26,10 @@ const ImageCard = ({ image }) => {
       <Img fluid={image} alt="" className="img-card__img" style={styles.img} />
       <div
         style={styles.imgBg}
-        class="img-card__background img-card__background--ws-2"
+        className="img-card__background img-card__background--ws-2"
       ></div>
     </div>
   )
 }
 
 export default ImageCard
-
-// ...GatsbyImageSharpFluid
