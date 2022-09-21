@@ -31,11 +31,12 @@ export default function Home({ data }) {
         className="content flow"
         dangerouslySetInnerHTML={{ __html: content }}
       />
-      <Button />
+      <Button title="e-shop" href="https://eshop.kokedamimamy.cz" />
     </Layout>
   )
 }
 
+// Append title etc. to `<head>`
 export const Head = () => <Seo />
 
 // Query data to populate the home page
