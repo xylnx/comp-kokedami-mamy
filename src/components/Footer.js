@@ -1,3 +1,4 @@
+// Gatsby
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
@@ -6,50 +7,14 @@ import Img from "gatsby-image"
 import SocialLinks from "../components/SocialLinks"
 
 // Styles
-import "../assets/scss/footer.scss"
+import * as styles from "../assets/scss/Footer.module.scss"
 
 const legalLinkTitle = "obchodní podmínky"
-
-const styles = {
-  kokedama: {
-    display: "inline-block",
-    width: "40%",
-    maxWidth: "16rem",
-    verticalAlign: "bottom",
-  },
-  paroznatka: {
-    width: "30%",
-    maxWidth: "18rem",
-    verticalAlign: "bottom",
-    display: "none",
-  },
-  duznatka: {
-    position: "absolute",
-    bottom: "0",
-    right: "0",
-    width: "16%",
-    maxWidth: "8rem",
-    display: "none",
-  },
-  linkLegal: {
-    position: "absolute",
-    bottom: "3.2rem",
-    right: "14rem",
-    fontWeight: "400",
-  },
-}
 
 const Footer = ({ isSocial = true, isLegal = false }) => {
   const data = useStaticQuery(graphql`
     query query {
       kokedama: file(relativePath: { regex: "/kokedama-1.png/" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      duznatka: file(relativePath: { regex: "/duznatka.png/" }) {
         childImageSharp {
           fluid(maxWidth: 1000, quality: 100) {
             ...GatsbyImageSharpFluid
@@ -63,46 +28,39 @@ const Footer = ({ isSocial = true, isLegal = false }) => {
           }
         }
       }
+      duznatka: file(relativePath: { regex: "/duznatka.png/" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
   const kokedama = data.kokedama.childImageSharp.fluid
-  const duznatka = data.kokedama.childImageSharp.fluid
   const paroznatka = data.paroznatka.childImageSharp.fluid
+  const duznatka = data.duznatka.childImageSharp.fluid
 
   return (
-    <footer
-      className="footer"
-      style={{ position: "relative", marginTop: "2.4rem" }}
-    >
-      <Img
-        fluid={kokedama}
-        alt=""
-        className="kokedama"
-        style={styles.kokedama}
-      />
-      <Img
-        fluid={paroznatka}
-        alt=""
-        className="paroznatka"
-        style={styles.paroznatka}
-      />
+    <footer className={styles.footer}>
+      <Img fluid={kokedama} alt="" className={styles.kokedama} />
+      <Img fluid={paroznatka} alt="" className={styles.paroznatka} />
 
       {isLegal && (
         <>
           <a
-            className="link--legal"
+            className={styles.linkLegal}
             href="/Obchodni_podminky_2022.pdf"
             target="_blank"
             rel="noreferrer"
             title={legalLinkTitle}
-            style={styles.linkLegal}
           >
             {legalLinkTitle}
           </a>
 
           {/* prevent layout shifts on hover */}
           <style>
-            {`.link--legal:after {
+            {`[class*="link-legal"]:after {
               content: '${legalLinkTitle}';
               visibility: hidden;
               height: 0;
@@ -115,12 +73,7 @@ const Footer = ({ isSocial = true, isLegal = false }) => {
 
       {isSocial && <SocialLinks />}
 
-      <Img
-        fluid={duznatka}
-        alt=""
-        className="duznatka"
-        style={styles.duznatka}
-      />
+      <Img fluid={duznatka} alt="" className={`duznatka ${styles.duznatka}`} />
     </footer>
   )
 }
