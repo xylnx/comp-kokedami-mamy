@@ -1,6 +1,5 @@
-// React
-import React from "react"
 // Gatsby
+import React from "react"
 import { graphql } from "gatsby"
 
 // Components
