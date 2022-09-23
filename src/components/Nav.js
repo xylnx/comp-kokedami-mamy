@@ -1,8 +1,12 @@
+// Gatsby
 import React from "react"
 import { Link } from "gatsby"
 
+// Static assets
 import logo from "../assets/img/logo.png"
-import "../assets/scss/nav.scss"
+
+// Styles
+import * as styles from "../assets/scss/Nav.module.scss"
 
 const Nav = () => {
   const handleClick = () => {
@@ -13,27 +17,35 @@ const Nav = () => {
   }
 
   return (
-    <nav className="nav wrapper">
+    <nav className={styles.navWrapper}>
       {/* toggle mobile nav */}
-      <input type="checkbox" id="navi-toggle" className="nav__checkbox" />
-      <label htmlFor="navi-toggle" className="nav__button">
-        <div className="nav__background"></div>
-        <div className="nav__icon">&nbsp;</div>
+      <input
+        type="checkbox"
+        id="navi-toggle"
+        className={styles.nav__checkbox}
+      />
+      <label htmlFor="navi-toggle" className={styles.nav__button}>
+        <div className={styles.nav__background}></div>
+        <div className={styles.nav__icon}>&nbsp;</div>
       </label>
 
-      <Link className="nav__brand" to="/" aria-label="go to hompage">
-        <img className="nav__logo" src={logo} alt="" />
+      <Link className={styles.nav__brand} to="/" aria-label="go to hompage">
+        <img className={styles.nav__logo} src={logo} alt="" />
       </Link>
 
-      <div className="nav__list">
-        <Link className="nav__link" to="/#about" onClick={handleClick}>
+      <div className={styles.nav__list}>
+        <Link className={styles.nav__link} to="/#about" onClick={handleClick}>
           o nás
         </Link>
-        <Link className="nav__link" to="/workshops" onClick={handleClick}>
+        <Link
+          className={styles.nav__link}
+          to="/workshops"
+          onClick={handleClick}
+        >
           workshopy
         </Link>
         <a
-          className="nav__link"
+          className={styles.nav__link}
           href="https://eshop.kokedamimamy.cz/"
           target="_blank"
           rel="noreferrer"
@@ -41,7 +53,7 @@ const Nav = () => {
         >
           e-shop
         </a>
-        <Link className="nav__link" to="/contact" onClick={handleClick}>
+        <Link className={styles.nav__link} to="/contact" onClick={handleClick}>
           kontakt
         </Link>
       </div>

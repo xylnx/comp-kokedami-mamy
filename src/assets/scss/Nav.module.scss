@@ -1,35 +1,20 @@
 @use "./vars" as vars;
 @use "./mq";
 
+.nav-wrapper {
+  margin: 3.2rem;
 
-@mixin clearfix {
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
 }
-
-
-.wrapper {
-  background-position-x: 0%;
-  background-position-y: 0%;
-  background-repeat: repeat;
-  background-size: auto;
-  background-position: top;
-  background-size: 100vw;
-  background-repeat: repeat;
-}
-
 
 .nav {
-
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
+  &__icon {
+    display: none;
   }
-
 
   &__checkbox {
     display: none;
@@ -38,32 +23,17 @@
   &__brand {
     display: inline-block;
     position: relative;
-    height: 20vh;
-    padding-left: 6rem;
-    margin-bottom: 1.6rem;
+    height: 16rem;
   }
 
   &__logo {
-    height: 96%;
+    height: 100%;
     transition: all .4s ease-in-out;
   }
 
   &__list {
     float: right;
-    margin-top: 3.2em;
-    margin-bottom: 1em;
-    padding-right: 3em;
-  }
-
-  &__list &__item {
-    list-style: none;
-    display: inline-block;
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-
-    &:not(:last-child) {
-      padding-right: 4rem;
-    }
+    margin-top: 11rem;
   }
 
   &__link,
@@ -73,36 +43,24 @@
     letter-spacing: 2px;
     display: inline-block;
     text-decoration: none;
-    color: vars.$color-text-primary;
     font-weight: 400;
-    /*
-    transform: translateY(0);
-    transition: transform .2s ease-in-out;
-    */
 
     &:not(:last-child) {
       padding-right: 4rem;
     }
 
-    /*
-    &:hover {
-      font-weight: 500;
 
-      transform: translateY(-.3rem);
-      transition: transform .2s ease-in-out;
-      transition-delay: .2s;
-    }
-    */
-
+    // Problem: font-weight is changed on hover
+    // => causes layout shifts
+    // Solution: Put bold content in hidden after elements
     &::after {
-      font-weight: 500;
+      display: block;
+      height: 0;
+      overflow: hidden;
+      font-weight: bold;
       visibility: hidden;
-
     }
 
-    // Content in hidden after els
-    // Prevents layout shifts on hover
-    // => font-weight is changed on hover
     &:nth-child(1)::after {
       content: 'o nás';
     }
@@ -120,19 +78,10 @@
     }
   }
 
-  a::after {
-      display: block;
-      content: attr(title);
-      font-weight: bold;
-      height: 0;
-      overflow: hidden;
-      visibility: hidden;
-    }
-
   @include mq.media(medium) {
     padding-bottom: 1rem;
 
-    &__list &__link {
+    &__link {
       font-size: 2.4rem;
       letter-spacing: 2px;
     }
@@ -140,16 +89,7 @@
 
   @include mq.media(small-medium) {
 
-    &__brand {
-      padding-left: 2rem;
-    }
-
-    &__list {
-      padding-right: 2em;
-      padding-top: .6rem;
-    }
-
-    &__list &__item {
+    &__list &__link {
       &:not(:last-child) {
         padding-right: 3rem;
       }
@@ -161,18 +101,7 @@
     }
   }
 
-  @media (max-width: 700px) {
-    .nav__list {
-      padding-right: 0;
-    }
-
-  }
-
   @include mq.media(small) {
-
-    &__brand {
-      height: 16rem;
-    }
 
     &__list {
       display: none;
