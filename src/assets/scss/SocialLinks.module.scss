@@ -1,26 +1,6 @@
 @use "./vars" as *;
 @use "./mq" as *;
 
-.social-container--ws {
-  position: absolute;
-  right: 16rem;
-  bottom: 3rem;
-
-  @include media(small-medium) {
-    right: 14rem;
-  }
-
-  @include media(small) {
-    position: relative;
-    right: auto;
-    width: 80vw;
-    margin: auto;
-    text-align: center;
-    padding-bottom: 2.5rem;
-    padding-top: 10rem;
-  }
-}
-
 .social-container {
   display: inline-block;
   position: absolute;
@@ -42,11 +22,12 @@
 }
 
 // Everything here won't be hashed, except .social
-// social is hashed to scope these styles (to ._socialBtns-module--social--...)
-// this allows you to use (mostly) regular class names in the template
+// social is hashed to scope these styles
+// => e.g .SocialLinks-module--social--... .social__link
+// this allows you to use regular class names in the template
 :global {
 
-:local(.social) .social{
+:local(.social) .social {
 
   &__link {
     display: flex;

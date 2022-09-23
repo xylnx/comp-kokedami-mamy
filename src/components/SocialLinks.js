@@ -1,4 +1,4 @@
-// Modules
+// Gatsby
 import React from "react"
 
 // Font Awesome
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram, faFacebookF } from "@fortawesome/free-brands-svg-icons"
 
 // Styles
-import * as styles from "../assets/scss/_socialLinks.module.scss"
+import * as styles from "../assets/scss/SocialLinks.module.scss"
 
 const SocialLinks = ({ customStyles }) => {
   return (
