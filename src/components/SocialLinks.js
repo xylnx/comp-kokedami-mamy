@@ -18,6 +18,7 @@ const SocialLinks = ({ customStyles }) => {
           target="_blank"
           rel="noreferrer"
           className="social__link"
+          aria-label="Přejít na facebook"
         >
           <FontAwesomeIcon
             className="social__icon"
@@ -31,6 +32,7 @@ const SocialLinks = ({ customStyles }) => {
           target="_blank"
           rel="noreferrer"
           className="social__link"
+          aria-label="Přejít na instagram"
         >
           <FontAwesomeIcon
             className="social__icon"
