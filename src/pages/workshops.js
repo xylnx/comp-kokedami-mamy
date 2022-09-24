@@ -63,14 +63,14 @@ export const pageQuery = graphql`
         featuredImg {
           childImageSharp {
             fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         featuredImgMobile {
           childImageSharp {
             fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -85,21 +85,21 @@ export const pageQuery = graphql`
     wsCard0: file(relativePath: { regex: "/card-workshop-zazitkovy.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 500, quality: 100) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     wsCard1: file(relativePath: { regex: "/card-workshop-2.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 500, quality: 100) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     wsCard2: file(relativePath: { regex: "/card-workshop-3.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 500, quality: 100) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

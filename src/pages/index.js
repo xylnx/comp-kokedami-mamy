@@ -50,14 +50,14 @@ export const pageQuery = graphql`
         featuredImg {
           childImageSharp {
             fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         featuredImgMobile {
           childImageSharp {
             fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
