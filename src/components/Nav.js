@@ -8,7 +8,7 @@ import logo from "../assets/img/logo.png"
 // Styles
 import * as styles from "../assets/scss/Nav.module.scss"
 
-const Nav = () => {
+const Nav = ({ isHome }) => {
   const handleClick = () => {
     const check = document.querySelector("#navi-toggle")
     if (check.checked) {
@@ -34,13 +34,18 @@ const Nav = () => {
       </Link>
 
       <div className={styles.nav__list}>
-        <Link className={styles.nav__link} to="/#about" onClick={handleClick}>
+        <Link
+          className={`${styles.nav__link} ${isHome ? "active" : ""}`}
+          to="/#about"
+          onClick={handleClick}
+        >
           o nás
         </Link>
         <Link
           className={styles.nav__link}
           to="/workshops"
           onClick={handleClick}
+          activeClassName="active"
         >
           workshopy
         </Link>
@@ -53,7 +58,12 @@ const Nav = () => {
         >
           e-shop
         </a>
-        <Link className={styles.nav__link} to="/contact" onClick={handleClick}>
+        <Link
+          className={styles.nav__link}
+          to="/contact"
+          onClick={handleClick}
+          activeClassName="active"
+        >
           kontakt
         </Link>
       </div>

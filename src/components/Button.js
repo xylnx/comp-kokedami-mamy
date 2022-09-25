@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import "../assets/scss/buttons.scss"
 
 const Button = ({ title, href, isBlank = true }) => {
-  console.log(href)
   return (
     <>
       {isBlank && (

@@ -9,11 +9,17 @@ import Footer from "../components/Footer"
 // Styles
 import "./../assets/scss/global.scss"
 
-const Layout = ({ image, isSocial = true, isLegal = false, children }) => {
+const Layout = ({
+  image,
+  isSocial = true,
+  isLegal = false,
+  isHome = false,
+  children,
+}) => {
   return (
     <>
       <header className="header">
-        <Nav />
+        <Nav isHome={isHome} />
         {image && <Hero image={image} />}
       </header>
       <main className="main container flow">{children}</main>

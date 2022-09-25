@@ -26,7 +26,7 @@ export default function Home({ data }) {
   const content = data.markdownRemark.html
 
   return (
-    <Layout image={sources}>
+    <Layout image={sources} isHome={true}>
       <section
         id="about"
         className="content flow"
