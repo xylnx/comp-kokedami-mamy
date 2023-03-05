@@ -33,10 +33,13 @@ export default function Home({ data }) {
     <Layout image={sources} isLegal={true}>
       <section id="workshops" className="content flow">
         <div className="flow" dangerouslySetInnerHTML={{ __html: content }} />
-        <Button />
         <div
           className="flow"
           dangerouslySetInnerHTML={{ __html: contentPart2 }}
+        />
+        <Button
+          title="aktuální termíny workshopů"
+          href="https://www.reservio.cz/b/kokedami-mamy"
         />
         <div className={styles.imageCards}>
           <ImageCard image={imageWsCard0} />
