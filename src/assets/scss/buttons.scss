@@ -1,6 +1,5 @@
-@use 'vars' as *;
-@use 'mq' as *;
-
+@use "vars" as *;
+@use "mq" as *;
 
 .btn {
   margin: 4rem 0;
@@ -8,18 +7,20 @@
   &:visited {
     text-decoration: none;
     color: $color-text-primary;
-    border: .4rem solid $color-text-primary;
+    border: 0.4rem solid $color-text-primary;
     font-size: $font-size-default;
     padding: 1rem 4rem;
     display: inline-block;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     z-index: 5000;
   }
 
   &:hover {
     background-color: $color-text-primary;
     // box-shadow: 0 1rem 2rem rgba(0,0,0, 0.4);
-    transform: translateY(-.3rem);
+    transform: translateY(-0.3rem);
+    text-transform: none;
+    font-weight: 300 !important;
   }
 
   &:active {
@@ -40,7 +41,7 @@
     &:link,
     &:visited {
       background-color: $color-text-primary;
-      border: .4rem solid $color-text-primary;
+      border: 0.4rem solid $color-text-primary;
       color: $color-text-secondary;
     }
 
